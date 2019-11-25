@@ -26,35 +26,35 @@ class KeplerianElements(models.Model):
 
 
 class CESBody(models.Model):
-    name = ""
-    description = ""
-    Velocity = ""
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=250)
+    velocity = models.CharField(max_length=100)
     x_pos = models.CharField(max_length=100)
     y_pos = models.CharField(max_length=100)
-    z_pos = models.CharField(max_length=100)
+    z_pos = models.CharField(max_length=101)
 
     def __str__(self):
         return self.name
 
 
 class Planet(CESBody):
-    def __init__(self, x_pos, y_pos, z_pos, gas_or_rocky):
+    def __init__(self, x_pos, y_pos, z_pos):
         super().__init__(x_pos)
         super().__init__(y_pos)
         super().__init__(z_pos)
-        self.gas_or_rocky = gas_or_rocky
+        self.gas_or_rocky = models.CharField(max_length=101)
 
 
 class NearEarthObjects(CESBody):
-    def __init__(self, x_pos, y_pos, z_pos, orbiting_body):
+    def __init__(self, x_pos, y_pos, z_pos,):
         super().__init__(x_pos)
         super().__init__(y_pos)
         super().__init__(z_pos)
-        self.orbiting_body = orbiting_body
+        self.orbiting_body = models.CharField(max_length=101)
 
 
 class LastUpdate(models.Model):
-    date = ""
+    date = models.CharField(max_length=32)
 
     def __str__(self):
         return self.date
