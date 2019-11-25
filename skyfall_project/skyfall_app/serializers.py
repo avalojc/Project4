@@ -31,7 +31,7 @@ class CESBodySerializer(serializers.ModelSerializer):
         fields = ('id',
                   'name',
                   'description',
-                  'Velocity',
+                  'velocity',
                   'x_pos',
                   'y_pos',
                   'z_pos', )

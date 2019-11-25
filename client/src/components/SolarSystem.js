@@ -4,9 +4,14 @@ import axios from 'axios'
 
 export class SolarSystem extends Component {
     state = {
-        
+        planetList: [],
     }
-
+    componentDidMount() {
+        this.refreshSolarSystem()
+    }
+    refreshSolarSystem=()=> {
+        axios.get
+    }
 
     render() {
         return (
