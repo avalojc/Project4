@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61756a4f-1d46-4176-b8e5-9937ea7c4d4a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/skyfall_project/skyfall_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/skyfall_project/skyfall_project/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skyfall_project/skyfall_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/skyfall_project/skyfall_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/skyfall_project/skyfall_app/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +18,7 @@
   </component>
   <component name="ProjectId" id="1TzINzmv6IzBCBfiSkMHa2kV71u" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../music-django-react" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -47,7 +50,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
