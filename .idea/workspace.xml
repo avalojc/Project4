@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61756a4f-1d46-4176-b8e5-9937ea7c4d4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/skyfall_project/skyfall_app/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/skyfall_project/skyfall_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/skyfall_project/skyfall_app/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/skyfall_project/skyfall_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/skyfall_project/skyfall_app/models.py" afterDir="false" />
@@ -18,7 +17,7 @@
   </component>
   <component name="ProjectId" id="1TzINzmv6IzBCBfiSkMHa2kV71u" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../music-django-react" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../sandbox/10SQLDJANGO/tunr_rest_api_example" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
