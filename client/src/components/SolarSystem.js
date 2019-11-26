@@ -158,7 +158,7 @@ export class SolarSystem extends Component {
             position: 'absolute',
             top: '0px',
             left: plutoAU,
-            background: 'purple',
+            background: 'violet',
             width: '1px',
             height: '1px',
         }

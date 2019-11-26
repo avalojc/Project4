@@ -7,9 +7,9 @@ export class CESItem extends Component {
 
         const CESStyle = {
             position: 'absolute',
-            top: this.props.y_pos,
-            left: this.props.x_pos,
-            background: this.props.name,
+            top: `${this.props.y_pos}px`,
+            left: `${this.props.x_pos}px`,
+            background: 'white',
             width: '5px',
             height: '5px',
         }
