@@ -14,7 +14,7 @@ export class SolarSystem extends Component {
         this.refreshSolarSystem0()
         this.refreshSolarSystem1()
         this.refreshSolarSystem2()
-        this.refreshSolarSystem3()
+        // this.refreshSolarSystem3()
         this.refreshSolarSystem4()
         console.log('yeet')
     }
@@ -42,14 +42,14 @@ export class SolarSystem extends Component {
             })
         })
     }
-    refreshSolarSystem3=()=> {
-        axios.get('/api/v1/NearEarthObjects')
-        .then((res)=> {
-            this.setState({
-                NearEarthObjectsList: res.data
-            })
-        })
-    }
+    // refreshSolarSystem3=()=> {
+    //     axios.get('https://api.nasa.gov/neo/rest/v1/neo/browse/?api_key=IeIThUz54Ih7TJSiKGz0WNhSbAJf0CdTTD1HcOaV')
+    //     .then((res)=> {
+    //         this.setState({
+    //             NearEarthObjectsList: res.data
+    //         })
+    //     })
+    // }
     refreshSolarSystem4=()=> {
         axios.get('/api/v1/LastUpdate')
         .then((res)=> {
@@ -60,8 +60,8 @@ export class SolarSystem extends Component {
     }
     render() {
         return (
-            <div className="SolarPlane">
-                Hello
+            <div className='SolarPlane'>
+                <div id='solaris'></div>
             </div>
         )
     }
