@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import {    Link  } from "react-router-dom";
 import axios from 'axios'
+import CESItem from './CESItem'
 
 export class SolarSystem extends Component {
     state = {
@@ -83,13 +84,12 @@ export class SolarSystem extends Component {
 
         const sunStyle = {
             position: 'relative',
-            top: '400px',
-            left: '100px',
+            top: '800px',
+            left: '800px',
             background: 'yellow',
             width: '1px',
             height: '1px',
           }
-
         const mercuryStyle = {
             position: 'absolute',
             top: '0px',
@@ -166,18 +166,34 @@ export class SolarSystem extends Component {
             background: 'white'
         }
 
+        const CESListElements = this.state.CESList.map((celestial) => {
+            return(
+                <CESItem
+                    key={celestial._id}
+                    CESId={celestial._id}
+                    name={celestial.name}
+                    velocity={celestial.velocity}
+                    x_pos={celestial.x_pos}
+                    y_pos={celestial.y_pos}
+                    z_pos={celestial.z_pos}
+                />
+            )
+        })
+
+
         return (
-            <div className='SolarPlane'>
+            <div className='SolarPlane' >
                 <div id='Sun' style={sunStyle}>
-                    <div id='Mercury' style={mercuryStyle}></div>
-                    <div id='Venus' style={venusStyle}></div>
-                    <div id='Earth' style={earthStyle}></div>
-                    <div id='Mars' style={marsStyle}></div>
-                    <div id='Jupiter' style={jupiterStyle}></div>
-                    <div id='Saturn' style={saturnStyle}></div>
-                    <div id='Uranus' style={uranusStyle}></div>
-                    <div id='Neptune' style={neptuneStyle}></div>
-                    <div id='Pluto' style={plutoStyle}></div>
+                    {CESListElements}
+                    <div className='StaticPlanet' id='Mercury' style={mercuryStyle}></div>
+                    <div className='StaticPlanet' id='Venus' style={venusStyle}></div>
+                    <div className='StaticPlanet' id='Earth' style={earthStyle}></div>
+                    <div className='StaticPlanet' id='Mars' style={marsStyle}></div>
+                    <div className='StaticPlanet' id='Jupiter' style={jupiterStyle}></div>
+                    <div className='StaticPlanet' id='Saturn' style={saturnStyle}></div>
+                    <div className='StaticPlanet' id='Uranus' style={uranusStyle}></div>
+                    <div className='StaticPlanet' id='Neptune' style={neptuneStyle}></div>
+                    <div className='StaticPlanet' id='Pluto' style={plutoStyle}></div>
                 </div>
             </div>
         )
