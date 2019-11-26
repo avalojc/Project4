@@ -41,9 +41,8 @@ class PlanetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Planet
         fields = ('id',
-                  'x_pos',
-                  'y_pos',
-                  'z_pos',
+                  'name',
+                  'photo_url',
                   'gas_or_rocky',)
 
 
@@ -51,9 +50,8 @@ class NearEarthObjectsSerializer(serializers.ModelSerializer):
     class Meta:
         model = NearEarthObjects
         fields = ('id',
-                  'x_pos',
-                  'y_pos',
-                  'z_pos',
+                  'name',
+                  'photo_url',
                   'orbiting_body',)
 
 
