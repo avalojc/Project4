@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import {    Link  } from "react-router-dom";
 import axios from 'axios'
 import CESItem from './CESItem'
+import KepItem from './KepItem'
 
 export class SolarSystem extends Component {
     state = {
@@ -17,7 +18,6 @@ export class SolarSystem extends Component {
         this.refreshSolarSystem2()
         // this.refreshSolarSystem3()
         this.refreshSolarSystem4()
-        console.log('yeet')
     }
     refreshSolarSystem0=()=> {
         axios.get('/api/v1/Planet')
@@ -60,7 +60,6 @@ export class SolarSystem extends Component {
         })
     }
     render() {
-        console.log('yeet2')
         // const milesToAUToPx = 92960000*20
         const mercuryAU =   35980000/92960000*20
         const venusAU =     67240000/92960000*20
@@ -179,12 +178,38 @@ export class SolarSystem extends Component {
                 />
             )
         })
+        const KepListElements = this.state.KeplerianElementsList.map((kep) => {
+            return(
+                <KepItem
+                    key={kep._id}
+                    kepId={kep._id}
+                    name={kep.name}
+                    x_pos={kep.x_pos}
+                    y_pos={kep.y_pos}
+                    z_pos={kep.z_pos}
+                    axd = {kep.semi_major_axis_diacritic}
+                    axs = { kep.semi_major_axis_subscript}
+                    ecd = { kep.eccentricity_diacritic }
+                    ecs = { kep.eccentricity_subscript }
+                    ind = { kep.inclination_diacritic }
+                    ins = { kep.inclination_subscript }
+                    lgd = { kep.mean_longitude_diacritic }
+                    lgs = { kep.mean_longitude_subscript }
+                    phd = { kep.longitude_of_perihelion_diacritic }
+                    phs = { kep.longitude_of_perihelion_subscript }
+                    and = {kep.longitude_of_the_ascending_node_diacritic }
+                    ans = {kep.longitude_of_the_ascending_node_subscript}
+                />
+            )
+        })
+
 
 
         return (
             <div className='SolarPlane' >
                 <div id='Sun' style={sunStyle}>
                     {CESListElements}
+                    {KepListElements}
                     <div className='StaticPlanet' id='Mercury' style={mercuryStyle}></div>
                     <div className='StaticPlanet' id='Venus' style={venusStyle}></div>
                     <div className='StaticPlanet' id='Earth' style={earthStyle}></div>
