@@ -34,15 +34,42 @@ export class KepItem extends Component {
         let Teph = 2458814.0328125
         let Tval = Teph - 2451545.0
         let axv = axs + axd * Tval
-        let ecv = ecs + ecd * Tval
+        let ecv = ecs + ecd * Tval //this is in radians
         let inv = ins + ind * Tval
         let lgv = lgs + lgd * Tval
         let phv = phs + phd * Tval
         let anv = ans + and * Tval
         let uuv = phv - anv
         let CapM = lgv - phv
-        let ModCapM = (CapM%360)-180
-        let eStar = 57.29578*ecv
+        let ModCapM = (CapM%360)
+        let ModCapMInRadians = ModCapM * Math.PI / 180
+        let ecvDegree = ecv * 180 / Math.PI
+        let valE0 = ModCapM + ecvDegree * Math.sin(ModCapM) * (1+ ecv * Math.cos(ModCapM))
+        let valE1 = valE0 - (valE0 - ecvDegree * Math.sin(valE0)-ModCapM)/(1-ecv* Math.cos(valE0))
+        // let valE2 = yeet2
+        // let valE3 = yeet3
+        let x = axv * (Math.cos(valE1)-ecv)
+        let y = axv * Math.sqrt(1-ecv*ecv) * Math.sin(valE1)
+
+
+
+        // let eStar = 57.29578*ecv //this is in degrees
+        // let t34 = ecv *ecv
+        // let t35 = ecv* t34
+        // let t33 = Math.cos(ModCapMInRadians)
+        // let keplerStart = ModCapMInRadians + (-1/2*t35+ecv+(t34+3/2*t33*t35)*Math.sin(ModCapMInRadians))
+        // let eps1 = (x-ecv*Math.sin(x)-ModCapMInRadians)/(1-ecv*Math.cos(x))
+        // let x=0
+        // let xprime = axv*Math.cos(CapE-ecv)
+        // let yprime = axv*Math.sqrt(1-ecv*ecv)*Math.sin(CapE)
+        // let zprime = 0
+
+
+
+
+
+
+
         }
         // console.log({kepMathVars})
 
