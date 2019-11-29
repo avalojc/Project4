@@ -61,6 +61,7 @@ export class SolarSystem extends Component {
     }
     render() {
         // const milesToAUToPx = 92960000*20
+        // avg distance of major bodies
         const mercuryAU =   35980000/92960000*20
         const venusAU =     67240000/92960000*20
         const earthAU =     92960000/92960000*20
@@ -70,6 +71,7 @@ export class SolarSystem extends Component {
         const uranusAU =  1784000000/92960000*20
         const neptuneAU = 2793000000/92960000*20
         const plutoAU =   3670050000/92960000*20
+        // diameters of major bodies
         // const sunD =      864340/92960000*20
         // const mercuryD =    3031.9/92960000*20
         // const venusD =      7520.8/92960000*20
@@ -80,7 +82,7 @@ export class SolarSystem extends Component {
         // const uranusD =    31518/92960000*20
         // const neptuneD =   30599/92960000*20
         // const plutoD =      1476.8/92960000*20
-
+        // center the sun
         const sunStyle = {
             position: 'relative',
             top: '800px',
@@ -178,6 +180,7 @@ export class SolarSystem extends Component {
                 />
             )
         })
+            
         const KepListElements = this.state.KeplerianElementsList.map((kep) => {
             return(
                 <KepItem
