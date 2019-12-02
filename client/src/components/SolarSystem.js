@@ -170,8 +170,8 @@ export class SolarSystem extends Component {
         const CESListElements = this.state.CESList.map((celestial) => {
             return(
                 <CESItem
-                    key={celestial._id}
-                    CESId={celestial._id}
+                    key={celestial.id}
+                    CESId={celestial.id}
                     name={celestial.name}
                     velocity={celestial.velocity}
                     x_pos={celestial.x_pos}
@@ -184,8 +184,8 @@ export class SolarSystem extends Component {
         const KepListElements = this.state.KeplerianElementsList.map((kep) => {
             return(
                 <KepItem
-                    key={kep._id}
-                    kepId={kep._id}
+                    key={kep.id}
+                    kepId={kep.id}
                     name={kep.name}
                     x_pos={kep.x_pos}
                     y_pos={kep.y_pos}
