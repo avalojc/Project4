@@ -10,7 +10,6 @@ export class KepItem extends Component {
     componentDidMount() {
         this.refreshSolarSystem0()
         this.kepMathVars()
-
     }
     refreshSolarSystem0 = (kepId) => {
         axios.get(`/api/v1/KeplerianElements/${this.props.kepId}`, kepId) /////////need to make it id specific
@@ -41,30 +40,22 @@ export class KepItem extends Component {
         // let Teph = 
         let Tval = -3543
         //values
-        let axv = axs + axd * Tval                          //AU
-        let ecv = ecs + ecd * Tval                          //this is in radians
+        let axv = axs + axd * Tval                          //Need to solve for units 
+        let ecv = ecs + ecd * Tval                          //this is in radians?
         let inv = ins + ind * Tval                          //deg
-        let lgv = lgs + lgd * Tval                          //deg
-        let phv = phs + phd * Tval                          //deg
+        let lgv = (lgs + lgd * Tval)%360+360                        //deg
+        let phv = phs + phd * Tval                        //deg
         let anv = ans + and * Tval                          //deg
-        let uuv = phv - anv
-        let capM = (lgs + (lgd * Tval)) - (phs + (phd * Tval))
-        let ModCapM = capM % 360                              //this is in degrees
-        let ecvDegree = ecv * 180 / Math.PI                 //this is in degrees
-        let i
+        let valE0 = lgv + 180/Math.PI*ecv * Math.sin(lgv) * (1 + ecv * Math.cos(lgv))
+        let valE1 = valE0 - (valE0 - 180/Math.PI*ecv * Math.sin(valE0) - lgv) / (1 - ecv * Math.cos(valE0))
+        console.log("0:"+valE0)
+        console.log("1:"+valE1)
 
-        let valE
-        for (i = 0; i <= 3; i++) {
-            let valE0 = ModCapM + ecvDegree * Math.sin(ModCapM) * (1 + ecv * Math.cos(ModCapM))
-            let valE1 = valE0 - (valE0 - ecvDegree * Math.sin(valE0) - ModCapM) / (1 - ecv * Math.cos(valE0))
-            let valMath = valE1 - valE0
-            if ( Math.abs(valMath) <!.05) { let valE0=valE1 }
-            console.log("0:"+valE0)
-            console.log("1:"+valE1)
-            console.log("this is loop " + i +  " of 3 for " + this.props.name)
-        }
 
     }
+
+
+
     // let ModCapMR = ModCapM * Math.PI / 180              //this is in radians
     // // solve for E make this loop
     //compute x and y coordinates
