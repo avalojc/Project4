@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-export class KepItem extends Component {
+export class NearEarthObjects extends Component {
     state = {
         KeplerianElementsList: [],
         set_x: "",
@@ -131,4 +131,4 @@ export class KepItem extends Component {
     }
 }
 
-export default KepItem
+export default NearEarthObjects

@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import CESItem from './CESItem'
 import KepItem from './KepItem'
+import NearEarthObjects from './NearEarthObjects'
 
 export class SolarSystem extends Component {
     state = {
@@ -43,14 +44,14 @@ export class SolarSystem extends Component {
             })
         })
     }
-    // refreshSolarSystem3=()=> {
-    //     axios.get('https://api.nasa.gov/neo/rest/v1/neo/browse/?api_key=IeIThUz54Ih7TJSiKGz0WNhSbAJf0CdTTD1HcOaV')
-    //     .then((res)=> {
-    //         this.setState({
-    //             NearEarthObjectsList: res.data
-    //         })
-    //     })
-    // }
+    refreshSolarSystem3=()=> {
+        axios.get('https://api.nasa.gov/neo/rest/v1/neo/browse/?api_key=IeIThUz54Ih7TJSiKGz0WNhSbAJf0CdTTD1HcOaV')
+        .then((res)=> {
+            this.setState({
+                NearEarthObjectsList: res.data
+            })
+        })
+    }
     refreshSolarSystem4=()=> {
         axios.get('/api/v1/LastUpdate')
         .then((res)=> {
@@ -205,6 +206,31 @@ export class SolarSystem extends Component {
                 />
             )
         })
+        // const NearEarthObjectElements = this.state.NearEarthObjectsList.map((nearEarth) => {            
+        //     return(
+        //         <NearEarthObjects
+        //             key={nearEarth.id}
+        //             nearEarthId={nearEarth.id}
+        //             name={nearEarth.name}
+        //             x_pos={nearEarth.x_pos}
+        //             y_pos={nearEarth.y_pos}
+        //             z_pos={nearEarth.z_pos}
+        //             axd = {nearEarth.semi_major_axis_diacritic}
+        //             axs = { nearEarth.semi_major_axis_subscript}
+        //             ecd = { nearEarth.eccentricity_diacritic }
+        //             ecs = { nearEarth.eccentricity_subscript }
+        //             ind = { nearEarth.inclination_diacritic }
+        //             ins = { nearEarth.inclination_subscript }
+        //             lgd = { nearEarth.mean_longitude_diacritic }
+        //             lgs = { nearEarth.mean_longitude_subscript }
+        //             phd = { nearEarth.longitude_of_perihelion_diacritic }
+        //             phs = { nearEarth.longitude_of_perihelion_subscript }
+        //             and = {nearEarth.longitude_of_the_ascending_node_diacritic }
+        //             ans = {nearEarth.longitude_of_the_ascending_node_subscript}
+        //         />
+        //     )
+        // })
+
 
 
 
@@ -213,6 +239,7 @@ export class SolarSystem extends Component {
                 <div id='Sun' style={sunStyle}>
                     {CESListElements}
                     {KepListElements}
+                    {/* {NearEarthObjectElements} */}
                     <div className='StaticPlanet' id='Mercury' style={mercuryStyle}></div>
                     <div className='StaticPlanet' id='Venus' style={venusStyle}></div>
                     <div className='StaticPlanet' id='Earth' style={earthStyle}></div>
