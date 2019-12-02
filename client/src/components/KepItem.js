@@ -37,25 +37,43 @@ export class KepItem extends Component {
         let and = parseFloat(this.props.and)
         let ans = parseFloat(this.props.ans)
         //whats the julian date
-        // let Teph = 
-        let Tval = -3543
+        let Teph = 2458820.276550926            //12/2/19 @~1338
+        let Tval = (Teph-2451545.0)/36525
         //values
-        let axv = axs + axd * Tval                          //Need to solve for units 
+        let axv = axs + axd * Tval                          //au
         let ecv = ecs + ecd * Tval                          //this is in radians?
         let inv = ins + ind * Tval                          //deg
         let lgv = (lgs + lgd * Tval)%360+360                        //deg
         let phv = phs + phd * Tval                        //deg
         let anv = ans + and * Tval                          //deg
-        let valE0 = lgv + 180/Math.PI*ecv * Math.sin(lgv) * (1 + ecv * Math.cos(lgv))
-        let valE1 = valE0 - (valE0 - 180/Math.PI*ecv * Math.sin(valE0) - lgv) / (1 - ecv * Math.cos(valE0))
-        console.log("0:"+valE0)
-        console.log("1:"+valE1)
+        let uuv = phv - anv
+        let ecvStar = ecv * 180 / Math.PI
+        let capitalM = lgv - phv
+        let capitalMModulus = capitalM%360-180
+        let functional=(x)=>{
+            if (x <= -180) { return x + 360  }
+            else {return x}
+        }
+        let meanAnomalyBetweenN180And180 = functional(capitalMModulus)
 
-
+        let keplersEquation=(Mval, echoStar, echo, )=>{
+        let valE0 = Mval + echoStar * Math.sin(Mval)
+        let deltaMeanAnomaly = Mval-(valE0-echoStar*Math.sin(valE0))
+        let deltaE = deltaMeanAnomaly/ (1-echo*Math.cos(valE0))
+        let valE1 = valE0 + deltaE
+        return valE1
     }
-
-
-
+        let valueOfE = keplersEquation(meanAnomalyBetweenN180And180, ecvStar, ecv)
+        console.log (valueOfE)
+    }
+        // if (capitalMModulus<=-180){ let finalCapitalMModulus = capitalMModulus+360 }
+        // else {let finalCapitalMModulus = capitalMModulus}
+        // let finalCapitalMModulus = capitalMModulus
+        // let valE0 = finalCapitalMModulus+ ecvStar
+        // let valE0 = lgv + 180/Math.PI*ecv * Math.sin(lgv) * (1 + ecv * Math.cos(lgv))
+        // let valE1 = valE0 - (valE0 - 180/Math.PI*ecv * Math.sin(valE0) - lgv) / (1 - ecv * Math.cos(valE0))
+        // console.log("0:"+valE0)
+        // console.log("1:"+valE1)
     // let ModCapMR = ModCapM * Math.PI / 180              //this is in radians
     // // solve for E make this loop
     //compute x and y coordinates
