@@ -38,8 +38,8 @@ export class KepItem extends Component {
         let and = parseFloat(this.props.and)
         let ans = parseFloat(this.props.ans)
         //whats the julian date
-        let Teph = 2458814.0328125
-        let Tval = Teph - 2451545.0
+        // let Teph = 
+        let Tval = -3543
         //values
         let axv = axs + axd * Tval                          //AU
         let ecv = ecs + ecd * Tval                          //this is in radians
@@ -52,13 +52,15 @@ export class KepItem extends Component {
         let ModCapM = capM % 360                              //this is in degrees
         let ecvDegree = ecv * 180 / Math.PI                 //this is in degrees
         let i
+
         let valE
-        for (i = 0; i <= 10; i++) {
-            if (i === 1) { break }
-            // let valE0 = ModCapM + ecvDegree * Math.sin(ModCapM) * (1 + ecv * Math.cos(ModCapM))
-            // let valE1 = valE0 - (valE0 - ecvDegree * Math.sin(valE0) - ModCapM) / (1 - ecv * Math.cos(valE0))
-            // let valMath = valE1 - valE0
-            // if (valMath < Math.abs(.05)) { console.log(i) }
+        for (i = 0; i <= 3; i++) {
+            let valE0 = ModCapM + ecvDegree * Math.sin(ModCapM) * (1 + ecv * Math.cos(ModCapM))
+            let valE1 = valE0 - (valE0 - ecvDegree * Math.sin(valE0) - ModCapM) / (1 - ecv * Math.cos(valE0))
+            let valMath = valE1 - valE0
+            if ( Math.abs(valMath) <!.05) { let valE0=valE1 }
+            console.log("0:"+valE0)
+            console.log("1:"+valE1)
             console.log("this is loop " + i +  " of 3 for " + this.props.name)
         }
 
@@ -89,7 +91,7 @@ export class KepItem extends Component {
         }
 
         return (
-            <div className='kepItem' style={KepItemStyle}>
+            <div className={this.props.name} style={KepItemStyle} >
             </div>
         )
     }
