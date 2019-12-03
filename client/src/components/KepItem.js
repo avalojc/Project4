@@ -91,27 +91,7 @@ export class KepItem extends Component {
         })
     
     }
-        // if (capitalMModulus<=-180){ let finalCapitalMModulus = capitalMModulus+360 }
-        // else {let finalCapitalMModulus = capitalMModulus}
-        // let finalCapitalMModulus = capitalMModulus
-        // let valE0 = finalCapitalMModulus+ ecvStar
-        // let valE0 = lgv + 180/Math.PI*ecv * Math.sin(lgv) * (1 + ecv * Math.cos(lgv))
-        // let valE1 = valE0 - (valE0 - 180/Math.PI*ecv * Math.sin(valE0) - lgv) / (1 - ecv * Math.cos(valE0))
-        // console.log("0:"+valE0)
-        // console.log("1:"+valE1)
-    // let ModCapMR = ModCapM * Math.PI / 180              //this is in radians
-    // // solve for E make this loop
-    //compute x and y coordinates
-    // let xdirection = 1
-    // //axv * (Math.cos(valE)-ecv)
-    // let ydirection = 1 
-    // //axv * (Math.sqrt(1-ecv*ecv)) * (Math.sin(valE))
 
-    // .then.setState({
-    //     set_x: xdirection, 
-    //     set_y: ydirection,
-    // })
-    // }
 
 
     render() {

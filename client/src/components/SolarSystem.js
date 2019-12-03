@@ -17,7 +17,7 @@ export class SolarSystem extends Component {
         this.refreshSolarSystem0()
         this.refreshSolarSystem1()
         this.refreshSolarSystem2()
-        // this.refreshSolarSystem3()
+        this.refreshSolarSystem3()
         this.refreshSolarSystem4()
     }
     refreshSolarSystem0=()=> {
@@ -44,19 +44,19 @@ export class SolarSystem extends Component {
             })
         })
     }
-    refreshSolarSystem3=()=> {
-        axios.get('https://api.nasa.gov/neo/rest/v1/neo/browse/?api_key=IeIThUz54Ih7TJSiKGz0WNhSbAJf0CdTTD1HcOaV')
-        .then((res)=> {
-            this.setState({
-                NearEarthObjectsList: res.data
-            })
-        })
-    }
     refreshSolarSystem4=()=> {
         axios.get('/api/v1/LastUpdate')
         .then((res)=> {
             this.setState({
                 LastUpdateList: res.data
+            })
+        })
+    }
+    refreshSolarSystem3=()=> {
+        axios.get('http://www.neowsapp.com/rest/v1/neo/browse?page=0&size=20&api_key=IeIThUz54Ih7TJSiKGz0WNhSbAJf0CdTTD1HcOaV')
+        .then((res)=> {
+            this.setState({
+                NearEarthObjectsList: res.data
             })
         })
     }
@@ -181,7 +181,6 @@ export class SolarSystem extends Component {
                 />
             )
         })
-            
         const KepListElements = this.state.KeplerianElementsList.map((kep) => {
             return(
                 <KepItem
@@ -206,33 +205,31 @@ export class SolarSystem extends Component {
                 />
             )
         })
-        // const NearEarthObjectElements = this.state.NearEarthObjectsList.map((nearEarth) => {            
+
+
+        const NearEarthObjectElements = this.state.NearEarthObjectsList.near_earth_objects
+        // .map((nearEarth) => {
         //     return(
         //         <NearEarthObjects
-        //             key={nearEarth.id}
-        //             nearEarthId={nearEarth.id}
-        //             name={nearEarth.name}
-        //             x_pos={nearEarth.x_pos}
-        //             y_pos={nearEarth.y_pos}
-        //             z_pos={nearEarth.z_pos}
-        //             axd = {nearEarth.semi_major_axis_diacritic}
-        //             axs = { nearEarth.semi_major_axis_subscript}
-        //             ecd = { nearEarth.eccentricity_diacritic }
-        //             ecs = { nearEarth.eccentricity_subscript }
-        //             ind = { nearEarth.inclination_diacritic }
-        //             ins = { nearEarth.inclination_subscript }
-        //             lgd = { nearEarth.mean_longitude_diacritic }
-        //             lgs = { nearEarth.mean_longitude_subscript }
-        //             phd = { nearEarth.longitude_of_perihelion_diacritic }
-        //             phs = { nearEarth.longitude_of_perihelion_subscript }
-        //             and = {nearEarth.longitude_of_the_ascending_node_diacritic }
-        //             ans = {nearEarth.longitude_of_the_ascending_node_subscript}
+        //             // key={nearEarth.id}
+        //             // nearEarthId={nearEarth.id}
+        //             // name={nearEarth.name}
+        //             // x_pos={nearEarth.orbital_data.x_pos}
+        //             // y_pos={nearEarth.orbital_data.y_pos}
+        //             // z_pos={nearEarth.orbital_data.z_pos}
+        //             // axv = {nearEarth.orbital_data.semi_major_axis}
+        //             // ecv = {nearEarth.orbital_data.eccentricity}
+        //             // inv = {nearEarth.orbital_data.inclination}
+        //             // capitalM = {nearEarth.orbital_data.mean_anomaly }
+        //             // anv = {nearEarth.orbital_data.ascending_node_longitude }
+        //             // orbitingbody = {nearEarth.orbital_data.close_approach_data.orbiting_body}
         //         />
         //     )
         // })
+        // const x = NearEarthObjectElements.map()       
 
 
-
+         console.log(NearEarthObjectElements)
 
         return (
             <div className='SolarPlane' >
@@ -250,6 +247,7 @@ export class SolarSystem extends Component {
                     <div className='StaticPlanet' id='Neptune' style={neptuneStyle}></div>
                     <div className='StaticPlanet' id='Pluto' style={plutoStyle}></div>
                 </div>
+                <div></div>
             </div>
         )
     }
