@@ -44,14 +44,6 @@ export class SolarSystem extends Component {
             })
         })
     }
-    refreshSolarSystem4=()=> {
-        axios.get('/api/v1/LastUpdate')
-        .then((res)=> {
-            this.setState({
-                LastUpdateList: res.data
-            })
-        })
-    }
     refreshSolarSystem3=()=> {
         axios.get('http://www.neowsapp.com/rest/v1/neo/browse?page=0&size=20&api_key=IeIThUz54Ih7TJSiKGz0WNhSbAJf0CdTTD1HcOaV')
         .then((res)=> {
@@ -60,6 +52,15 @@ export class SolarSystem extends Component {
             })
         })
     }
+    refreshSolarSystem4=()=> {
+        axios.get('/api/v1/LastUpdate')
+        .then((res)=> {
+            this.setState({
+                LastUpdateList: res.data
+            })
+        })
+    }
+
     render() {
         // const milesToAUToPx = 92960000*20
         // avg distance of major bodies
@@ -207,7 +208,11 @@ export class SolarSystem extends Component {
         })
 
 
-        const NearEarthObjectElements = this.state.NearEarthObjectsList.near_earth_objects
+        // const NearEarthObjectElements = this.state.NearEarthObjectsList.near_earth_objects.map(()=>{
+
+
+        // })
+
         // .map((nearEarth) => {
         //     return(
         //         <NearEarthObjects
@@ -227,9 +232,9 @@ export class SolarSystem extends Component {
         //     )
         // })
         // const x = NearEarthObjectElements.map()       
+        // console.log(NearEarthObjectElements)
+        // JSON.stringify(NearEarthObjectElements)
 
-
-         console.log(NearEarthObjectElements)
 
         return (
             <div className='SolarPlane' >
