@@ -8,7 +8,7 @@ export class LastUpdate extends Component {
         newUpdate: '',
     }
     refreshSolarSystem4=()=> {
-        axios.get('/api/v1/LastUpdate')
+        axios.get('api/v1/LastUpdate')
         .then((res)=> {
             this.setState({
                 LastUpdateList: res.data
@@ -16,10 +16,11 @@ export class LastUpdate extends Component {
         })
     }
     createUpdateTime=()=> {
-        const newUpdate = {
+
+        let newUpdate = {
             date: 'test'
         };
-        axios.post('/api/v1/LastUpdate/', newUpdate)
+        axios.post('api/v1/LastUpdate/', newUpdate)
     }
     onNewUpdateAdd = (event) => {
         const newUpdate = event.target.value;
