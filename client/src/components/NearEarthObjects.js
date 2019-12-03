@@ -86,13 +86,11 @@ export class NearEarthObjects extends Component {
             position: 'absolute',
             top: `${this.state.set_y}px`,
             left: `${this.state.set_x}px`,
-            background: 'white',
-            width: '1px',
-            height: '1px',
+
         }
 
         return (
-            <div className={this.props.name} style={NearEarthItemStyle} >
+            <div className={`NEO ${this.props.name}`}  style={NearEarthItemStyle} >
             </div>
         )
     }

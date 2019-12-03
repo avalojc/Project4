@@ -94,80 +94,55 @@ export class SolarSystem extends Component {
             height: '1px',
           }
         const mercuryStyle = {
-            position: 'absolute',
-            top: '0px',
+            position:'absolute',top:'0px',width:'1px',height:'15px',
+            display: 'flex',
+            'align-items': 'center',
+            'justify-content': 'center',
             left: mercuryAU,
-            background: 'grey',
-            width: '1px',
-            height: '1px',
+            background: 'rgba(255, 255, 255, .5)',
+
         }
         const venusStyle = {
-            position: 'absolute',
-            top: '0px',
+            position:'absolute',top:'0px',width:'1px',height:'15px',
             left: venusAU,
-            background: 'yellow',
-            width: '1px',
-            height: '1px',
+            background: 'rgba(255,255,0,.5)',
         }
         const earthStyle = {
-            position: 'absolute',
-            top: '0px',
+            position:'absolute',top:'0px',width:'1px',height:'15px',
             left: earthAU,
-            background: 'green',
-            width: '1px',
-            height: '1px',
+            background: 'rgba(0,0,255,.5)',
         }
         const marsStyle = {
-            position: 'absolute',
-            top: '0px',
+            position:'absolute',top:'0px',width:'1px',height:'15px',
             left: marsAU,
             background: 'red',
-            width: '1px',
-            height: '1px',
         }
         const jupiterStyle = {
-            position: 'absolute',
-            top: '0px',
+            position:'absolute',top:'0px',width:'1px',height:'15px',
             left: jupiterAU,
             background: 'orangered',
-            width: '1px',
-            height: '1px',
         }
         const saturnStyle = {
-            position: 'absolute',
-            top: '0px',
+            position:'absolute',top:'0px',width:'1px',height:'15px',
             left: saturnAU,
             background: 'orange',
-            width: '1px',
-            height: '1px',
         }
         const uranusStyle = {
-            position: 'absolute',
-            top: '0px',
+            position:'absolute',top:'0px',width:'1px',height:'15px',
             left: uranusAU,
             background: 'violet',
-            width: '1px',
-            height: '1px',
         }
         const neptuneStyle = {
-            position: 'absolute',
-            top: '0px',
+            position:'absolute',top:'0px',width:'1px',height:'15px',
             left: neptuneAU,
             background: 'blue',
-            width: '1px',
-            height: '1px',
         }
         const plutoStyle = {
-            position: 'absolute',
-            top: '0px',
+            position:'absolute',top:'0px',width:'1px',height:'15px',
             left: plutoAU,
             background: 'violet',
-            width: '1px',
-            height: '1px',
         }
-        const astroidStyle = {
-            background: 'white'
-        }
+
 
         const CESListElements = this.state.CESList.map((celestial) => {
             return(

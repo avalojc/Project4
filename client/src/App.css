@@ -62,7 +62,7 @@ table {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgba(255, 255, 255, 1);
 }
 
 .App-link {
@@ -74,6 +74,17 @@ table {
   color: white;
   height: 1600px;
   width: 1600px;
+}
+.NEO {
+  background-color: white;
+  width: 1px;
+  height: 1px;
+}
+
+.NEO:hover {
+  background-color: red;
+
+
 }
 
 

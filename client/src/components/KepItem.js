@@ -38,7 +38,9 @@ export class KepItem extends Component {
         let and = parseFloat(this.props.and)
         let ans = parseFloat(this.props.ans)
         //whats the julian date
-        let Teph = 2468820.276550926            //12/2/19 @~1338
+        let today = new Date();
+        let julianday = (today.valueOf()/(1000*60*60*24)-.5) + 2440588
+        let Teph = julianday            //12/2/19 @~1338
         let Tval = (Teph-2451545.0)/36525
         //step 1
         let axv = axs + axd * Tval                          //au
