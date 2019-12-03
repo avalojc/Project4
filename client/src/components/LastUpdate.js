@@ -6,12 +6,20 @@ export class LastUpdate extends Component {
     state = {
         
     }
-
+    refreshSolarSystem4=()=> {
+        axios.get('/api/v1/LastUpdate')
+        .then((res)=> {
+            this.setState({
+                LastUpdateList: res.data
+            })
+        })
+    }
 
     render() {
         return (
             <div className="lastupdate">
-                Now
+                {this.state.LastUpdateList} Name
+                <button onClick="refreshSolarSystem4()">New Time</button>
             </div>
         )
     }

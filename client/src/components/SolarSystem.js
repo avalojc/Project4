@@ -97,8 +97,6 @@ export class SolarSystem extends Component {
         const mercuryStyle = {
             position:'absolute',top:'0px',width:'1px',height:'15px',
             display: 'flex',
-            'align-items': 'center',
-            'justify-content': 'center',
             left: mercuryAU,
             background: 'rgba(255, 255, 255, .5)',
 
