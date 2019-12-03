@@ -1,24 +1,25 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 
 export class KepItem extends Component {
     state = {
+        KeplerianElementsList: [],
         set_x: "",
         set_y: 100,
         set_z: ""
     }
     componentDidMount() {
-        //this.refreshSolarSystem0()
+        this.refreshSolarSystem0()
         this.kepMathVars()
     }
-    // refreshSolarSystem0 = (kepId) => {
-    //     axios.get(`/api/v1/KeplerianElements/${this.props.kepId}`, kepId) /////////need to make it id specific
-    //         .then((res) => {
-    //             this.setState({
-    //                 KeplerianElementsList: res.data
-    //             })
-    //         })
-    // }
+    refreshSolarSystem0 = (kepId) => {
+        axios.get(`/api/v1/KeplerianElements/${this.props.kepId}`, kepId) /////////need to make it id specific
+            .then((res) => {
+                this.setState({
+                    KeplerianElementsList: res.data
+                })
+            })
+    }
 
 
 
@@ -64,11 +65,9 @@ export class KepItem extends Component {
         let deltaMeanAnomaly = Mval-(valE0-echoStar*Math.sin(valE0))
         let deltaE = deltaMeanAnomaly/ (1-echo*Math.cos(valE0))
         let valE1 = valE0 + deltaE
-        console.log(deltaE)
         return valE1
     }
         let valueOfE = keplersEquation(meanAnomalyBetweenN180And180, ecvStar, ecv)
-        console.log (valueOfE)
         //step four
         let xPrime = axv*(Math.cos(valueOfE)-ecv)
         let yPrime = axv*(Math.sqrt(1-ecv*ecv))*Math.sin(valueOfE)

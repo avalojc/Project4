@@ -222,7 +222,7 @@ export class SolarSystem extends Component {
                     inv = {nearEarth.orbital_data.inclination}
                     capitalM = {nearEarth.orbital_data.mean_anomaly }
                     anv = {nearEarth.orbital_data.ascending_node_longitude }
-                    orbitingbody = {nearEarth.orbital_data.orbiting_body}
+                    orbitingbody = {nearEarth.close_approach_data[0]}
                 />
             )
         })
