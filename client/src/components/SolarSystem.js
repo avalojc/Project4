@@ -48,7 +48,7 @@ export class SolarSystem extends Component {
         axios.get('http://www.neowsapp.com/rest/v1/neo/browse?page=0&size=20&api_key=IeIThUz54Ih7TJSiKGz0WNhSbAJf0CdTTD1HcOaV')
         .then((res)=> {
             this.setState({
-                NearEarthObjectsList: res.data
+                NearEarthObjectsList: res.data.near_earth_objects
             })
         })
     }
@@ -208,29 +208,26 @@ export class SolarSystem extends Component {
         })
 
 
-        // const NearEarthObjectElements = this.state.NearEarthObjectsList.near_earth_objects.map(()=>{
+        const NearEarthObjectElements = this.state.NearEarthObjectsList.map((nearEarth) => {
+            return(
+                <NearEarthObjects
+                    key={nearEarth.id}
+                    nearEarthId={nearEarth.id}
+                    name={nearEarth.name}
+                    x_pos={nearEarth.orbital_data.x_pos}
+                    y_pos={nearEarth.orbital_data.y_pos}
+                    z_pos={nearEarth.orbital_data.z_pos}
+                    axv = {nearEarth.orbital_data.semi_major_axis}
+                    ecv = {nearEarth.orbital_data.eccentricity}
+                    inv = {nearEarth.orbital_data.inclination}
+                    capitalM = {nearEarth.orbital_data.mean_anomaly }
+                    anv = {nearEarth.orbital_data.ascending_node_longitude }
+                    orbitingbody = {nearEarth.orbital_data.orbiting_body}
+                />
+            )
+        })
 
 
-        // })
-
-        // .map((nearEarth) => {
-        //     return(
-        //         <NearEarthObjects
-        //             // key={nearEarth.id}
-        //             // nearEarthId={nearEarth.id}
-        //             // name={nearEarth.name}
-        //             // x_pos={nearEarth.orbital_data.x_pos}
-        //             // y_pos={nearEarth.orbital_data.y_pos}
-        //             // z_pos={nearEarth.orbital_data.z_pos}
-        //             // axv = {nearEarth.orbital_data.semi_major_axis}
-        //             // ecv = {nearEarth.orbital_data.eccentricity}
-        //             // inv = {nearEarth.orbital_data.inclination}
-        //             // capitalM = {nearEarth.orbital_data.mean_anomaly }
-        //             // anv = {nearEarth.orbital_data.ascending_node_longitude }
-        //             // orbitingbody = {nearEarth.orbital_data.close_approach_data.orbiting_body}
-        //         />
-        //     )
-        // })
         // const x = NearEarthObjectElements.map()       
         // console.log(NearEarthObjectElements)
         // JSON.stringify(NearEarthObjectElements)
@@ -241,7 +238,7 @@ export class SolarSystem extends Component {
                 <div id='Sun' style={sunStyle}>
                     {CESListElements}
                     {KepListElements}
-                    {/* {NearEarthObjectElements} */}
+                    {NearEarthObjectElements}
                     <div className='StaticPlanet' id='Mercury' style={mercuryStyle}></div>
                     <div className='StaticPlanet' id='Venus' style={venusStyle}></div>
                     <div className='StaticPlanet' id='Earth' style={earthStyle}></div>

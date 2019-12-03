@@ -1,25 +1,24 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 
 export class KepItem extends Component {
     state = {
-        KeplerianElementsList: [],
         set_x: "",
         set_y: 100,
         set_z: ""
     }
     componentDidMount() {
-        this.refreshSolarSystem0()
+        //this.refreshSolarSystem0()
         this.kepMathVars()
     }
-    refreshSolarSystem0 = (kepId) => {
-        axios.get(`/api/v1/KeplerianElements/${this.props.kepId}`, kepId) /////////need to make it id specific
-            .then((res) => {
-                this.setState({
-                    KeplerianElementsList: res.data
-                })
-            })
-    }
+    // refreshSolarSystem0 = (kepId) => {
+    //     axios.get(`/api/v1/KeplerianElements/${this.props.kepId}`, kepId) /////////need to make it id specific
+    //         .then((res) => {
+    //             this.setState({
+    //                 KeplerianElementsList: res.data
+    //             })
+    //         })
+    // }
 
 
 

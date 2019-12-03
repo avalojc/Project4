@@ -9,18 +9,17 @@ export class NearEarthObjects extends Component {
         set_z: ""
     }
     componentDidMount() {
-        this.refreshSolarSystem0()
+        // this.refreshSolarSystem0()
         // this.kepMathVars()
     }
-    refreshSolarSystem0 = () => {
-        axios.get('http://www.neowsapp.com/rest/v1/neo/browse?page=0&size=20&api_key=IeIThUz54Ih7TJSiKGz0WNhSbAJf0CdTTD1HcOaV')
-        // axios.get(`/api/v1/KeplerianElements/${this.props.kepId}`, kepId) /////////need to make it id specific
-            .then((res) => {
-                this.setState({
-                    NearEarthObjectsList: res.data
-                })
-            })
-    }
+    // refreshSolarSystem0 = (objid) => {
+    //     axios.get(`http://www.neowsapp.com/rest/v1/neo/${this.props.objid}?api_key=IeIThUz54Ih7TJSiKGz0WNhSbAJf0CdTTD1HcOaV`, objid)
+    //         .then((res) => {
+    //             this.setState({
+    //                 NearEarthObjectsList: res.data
+    //             })
+    //         })
+    // }
 
 
 
