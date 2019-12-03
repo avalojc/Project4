@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+
 
 export class NearEarthObjects extends Component {
     state = {
@@ -10,17 +10,9 @@ export class NearEarthObjects extends Component {
         orbiting_body: ""
     }
     componentDidMount() {
-        // this.refreshSolarSystem0()
          this.kepMathVars()
     }
-    // refreshSolarSystem0 = (objid) => {
-    //     axios.get(`http://www.neowsapp.com/rest/v1/neo/${this.props.objid}?api_key=IeIThUz54Ih7TJSiKGz0WNhSbAJf0CdTTD1HcOaV`, objid)
-    //         .then((res) => {
-    //             this.setState({
-    //                 NearEarthObjectsList: res.data
-    //             })
-    //         })
-    // }
+
 
 
 
@@ -58,7 +50,7 @@ export class NearEarthObjects extends Component {
         //step four
         let xPrime = axv*(Math.cos(valueOfE)-ecv)
         let yPrime = axv*(Math.sqrt(1-ecv*ecv))*Math.sin(valueOfE)
-        let zPrime = 0
+        // let zPrime = 0
         //step 5
         let xecl = ( (Math.cos(uuv)*Math.cos(anv)-Math.sin(uuv)*Math.sin(anv)*Math.cos(inv))*xPrime+ ((-Math.sin(uuv)*Math.cos(anv)-Math.cos(uuv)*Math.sin(anv)*Math.cos(inv))*yPrime))
         let yecl = ( (Math.cos(uuv)*Math.cos(anv)+Math.sin(uuv)*Math.sin(anv)*Math.cos(inv))*xPrime+ ((-Math.sin(uuv)*Math.sin(anv)-Math.cos(uuv)*Math.cos(anv)*Math.cos(inv))*yPrime))

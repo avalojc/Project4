@@ -73,7 +73,7 @@ export class KepItem extends Component {
         //step four
         let xPrime = axv*(Math.cos(valueOfE)-ecv)
         let yPrime = axv*(Math.sqrt(1-ecv*ecv))*Math.sin(valueOfE)
-        let zPrime = 0
+        // let zPrime = 0
         //step 5
         let xecl = ( (Math.cos(uuv)*Math.cos(anv)-Math.sin(uuv)*Math.sin(anv)*Math.cos(inv))*xPrime+ ((-Math.sin(uuv)*Math.cos(anv)-Math.cos(uuv)*Math.sin(anv)*Math.cos(inv))*yPrime))
         let yecl = ( (Math.cos(uuv)*Math.cos(anv)+Math.sin(uuv)*Math.sin(anv)*Math.cos(inv))*xPrime+ ((-Math.sin(uuv)*Math.sin(anv)-Math.cos(uuv)*Math.cos(anv)*Math.cos(inv))*yPrime))
