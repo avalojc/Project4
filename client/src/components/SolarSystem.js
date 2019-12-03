@@ -4,6 +4,7 @@ import axios from 'axios'
 import CESItem from './CESItem'
 import KepItem from './KepItem'
 import NearEarthObjects from './NearEarthObjects'
+import LastUpdate from './LastUpdate'
 
 export class SolarSystem extends Component {
     state = {
@@ -202,6 +203,15 @@ export class SolarSystem extends Component {
             )
         })
 
+        // const LastUpdate = this.state.LastUpdateList.map((last) => {
+        //     return(
+        //         <LastUpdate
+        //             key={last.id}
+        //             lastUpdateId={last.id}
+        //             date={last.date}
+        //         />
+        //     )
+        // })
 
         // const x = NearEarthObjectElements.map()       
         // console.log(NearEarthObjectElements)
@@ -224,7 +234,7 @@ export class SolarSystem extends Component {
                     <div className='StaticPlanet' id='Neptune' style={neptuneStyle}></div>
                     <div className='StaticPlanet' id='Pluto' style={plutoStyle}></div>
                 </div>
-                <div></div>
+                <LastUpdate></LastUpdate>
             </div>
         )
     }

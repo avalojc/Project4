@@ -1,20 +1,20 @@
-// import React, { Component } from 'react'
-// import {    Link  } from "react-router-dom";
-// import axios from 'axios'
+import React, { Component } from 'react'
+import {    Link  } from "react-router-dom";
+import axios from 'axios'
 
-// export class SolarSystem extends Component {
-//     state = {
+export class LastUpdate extends Component {
+    state = {
         
-//     }
+    }
 
 
-//     render() {
-//         return (
-//             <div>
-                
-//             </div>
-//         )
-//     }
-// }
+    render() {
+        return (
+            <div className="lastupdate">
+                Now
+            </div>
+        )
+    }
+}
 
-// export default SolarSystem
+export default LastUpdate
