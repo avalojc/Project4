@@ -44,7 +44,28 @@ export class NearEarthObjects extends Component {
         let deltaE = deltaMeanAnomaly/ (1-echo*Math.cos(valE0))
         let valE1 = valE0 + deltaE
         console.log(deltaE)
-        return valE1
+        if(Math.abs(valE1-valE0)<!.05){
+            valE0=valE1
+            deltaMeanAnomaly = Mval-(valE0-echoStar*Math.sin(valE0))
+            deltaE = deltaMeanAnomaly/ (1-echo*Math.cos(valE0))
+            valE1 = valE0 + deltaE
+            if(Math.abs(valE1-valE0)<!.05){
+                valE0=valE1
+                deltaMeanAnomaly = Mval-(valE0-echoStar*Math.sin(valE0))
+                deltaE = deltaMeanAnomaly/ (1-echo*Math.cos(valE0))
+                valE1 = valE0 + deltaE
+                if(Math.abs(valE1-valE0)<!.05){
+                    valE0=valE1
+                    deltaMeanAnomaly = Mval-(valE0-echoStar*Math.sin(valE0))
+                    deltaE = deltaMeanAnomaly/ (1-echo*Math.cos(valE0))
+                    valE1 = valE0 + deltaE
+                    return valE1
+                }
+                else{return valE1}
+            }
+            else{return valE1}
+        }
+        else{return valE1}
     }
         let valueOfE = keplersEquation(meanAnomalyBetweenN180And180, ecvStar, ecv)
         //step four

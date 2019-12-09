@@ -74,6 +74,7 @@ table {
   color: white;
   height: 1600px;
   width: 1600px;
+  margin: 50px;
 }
 .NEO {
   background-color: white;
@@ -83,8 +84,44 @@ table {
 
 .NEO:hover {
   background-color: red;
+}
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./img/moon.jpg");
+  background-repeat: no-repeat;
+  height: 1700px;
+  width: 100%;
+  background-size: cover;
+}
+#root{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.welcomeBar {
+  color: rgb(51, 255, 51);
+  font-family: 'Tomorrow', sans-serif;
 
-
+  margin: 10px;
+}
+h1{
+  font-size: 3em;
+}
+.StaticPlanet{
+  color: rgba(51, 255, 51,1);
+  font-family: 'Tomorrow', sans-serif;
 }
 
-
+@media only screen and (min-width: 1700px) {
+  #solarField{
+    width: 1700px;
+  }
+}
+@media only screen and (max-width: 1700px) {
+  #root{
+    width: 1700px;
+  }
+}

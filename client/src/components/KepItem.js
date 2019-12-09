@@ -67,7 +67,28 @@ export class KepItem extends Component {
         let deltaMeanAnomaly = Mval-(valE0-echoStar*Math.sin(valE0))
         let deltaE = deltaMeanAnomaly/ (1-echo*Math.cos(valE0))
         let valE1 = valE0 + deltaE
-        return valE1
+        if(Math.abs(valE1-valE0)<!.05){
+            valE0=valE1
+            deltaMeanAnomaly = Mval-(valE0-echoStar*Math.sin(valE0))
+            deltaE = deltaMeanAnomaly/ (1-echo*Math.cos(valE0))
+            valE1 = valE0 + deltaE
+            if(Math.abs(valE1-valE0)<!.05){
+                valE0=valE1
+                deltaMeanAnomaly = Mval-(valE0-echoStar*Math.sin(valE0))
+                deltaE = deltaMeanAnomaly/ (1-echo*Math.cos(valE0))
+                valE1 = valE0 + deltaE
+                if(Math.abs(valE1-valE0)<!.05){
+                    valE0=valE1
+                    deltaMeanAnomaly = Mval-(valE0-echoStar*Math.sin(valE0))
+                    deltaE = deltaMeanAnomaly/ (1-echo*Math.cos(valE0))
+                    valE1 = valE0 + deltaE
+                    return valE1
+                }
+                else{return valE1}
+            }
+            else{return valE1}
+        }
+        else{return valE1}
     }
         let valueOfE = keplersEquation(meanAnomalyBetweenN180And180, ecvStar, ecv)
         //step four
@@ -85,9 +106,9 @@ export class KepItem extends Component {
         let zeq = Math.sin(epsilon) * yecl + Math.cos(epsilon)*zecl
         //convert from au to px
         this.setState({
-            set_x: xeq*80,
-            set_y: yeq*80,
-            set_z: zeq*80
+            set_x: xeq*180,
+            set_y: yeq*180,
+            set_z: zeq*180
         })
     
     }
