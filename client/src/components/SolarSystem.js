@@ -64,7 +64,7 @@ export class SolarSystem extends Component {
 
     render() {
         // const milesToAUToPx = 92960000*20
-        // avg distance of major bodies
+        // avg distance of major bodies 20px to 1 au
         const mercuryAU =   35980000/92960000*20
         const venusAU =     67240000/92960000*20
         const earthAU =     92960000/92960000*20
@@ -202,11 +202,6 @@ export class SolarSystem extends Component {
         })
         return (
             <div className='SolarPlane' >
-                <div className='welcomeBar'><h1>Welcome to the Solar Field</h1>
-                <p>Below is a scale model of our solar system(20px to 1AU). It uses NASA's open API to position Near Earth Objects using Kepler's Equation.</p>
-                <p>The colored bars signify the average distance of the planets (including pluto) from the Sun.<br></br>
-                grey:Mercury, yellow:Venus, blue:Earth, red:Mars, orange:Jupiter, orange:Saturn, purple:Uranus, green:Neptune, violet:Pluto.</p>
-                </div>
                 <div id='Sun' style={sunStyle}>
                     {CESListElements}
                     {KepListElements}
@@ -220,6 +215,17 @@ export class SolarSystem extends Component {
                     <div className='StaticPlanet' id='Uranus' style={uranusStyle}></div>
                     <div className='StaticPlanet' id='Neptune' style={neptuneStyle}></div>
                     <div className='StaticPlanet' id='Pluto' style={plutoStyle}></div>
+                </div>
+                <div className='welcomeBar'>
+                    <h1>Welcome to the Solar Field</h1>
+                    <p>Below is a scale model of our solar system(20px to 1AU). It uses NASA's open API to position Near Earth Objects using Kepler's Equation.</p>
+                    <p>The colored bars signify the average distance of the planets (including pluto) from the Sun.<br></br>
+                    grey:Mercury, yellow:Venus, blue:Earth, red:Mars, orange:Jupiter, orange:Saturn, purple:Uranus, green:Neptune, violet:Pluto.</p>
+                </div>
+                <div className='infoHover'>
+                    Earth <br></br><br></br>
+                    Third Planet from the Sun. Home to the only known life in the universe. Approximatly 1 AU from the Sun.
+                    <div className="blinking"></div>
                 </div>
             </div>
         )
