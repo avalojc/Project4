@@ -114,6 +114,21 @@ h1{
   color: rgba(51, 255, 51,1);
   font-family: 'Tomorrow', sans-serif;
 }
+.infoHover{
+  width: 200px;
+  height: 200px;
+  border: 5px solid rgba(51, 255, 51,1);
+  margin: 25px;
+  padding: 10px;
+  color: rgba(51, 255, 51,1);
+  font-family: 'Tomorrow', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
 
 @media only screen and (min-width: 1700px) {
   #solarField{
